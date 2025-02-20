@@ -1,0 +1,18 @@
+body{
+    color:bisque;
+}
+h1,ul,h2,ol,li,p {
+    color:black;
+}
+h1,h2 {
+    margin:10 auto; text-align: center; color: greenyellow;
+}
+
+
+h1,h2 { text-decoration: underline; }
+nav{
+    width:100%; background:gainsboro;
+}
+h4{
+    width: 100%; background: yellow;
+}
