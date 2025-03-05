@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>media queries</title>
+    <style>
+        /*media query sizes
+        320px - 480px : small mobile
+        481px - 768px : tablets
+        769px- 1024px : small screens and laptops
+        1201px - 1200px desktop and large screens
+        1201 px : tvs and big screens*/
+
+        nav{overflow: hidden; background: #333;}
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        nav a:hover {background: #ddd; color: black;}
+        #device::before{ content: 'desktop';}
+
+        @media screen and (max-width:768px) {
+            nav a{float: none;width: 100%;}
+            #device::before {content: 'mobile';}
+        }
+        @media (max-width:480px){
+            #device::before{content:'small mobile'}
+        }
+        body{ background: lightgreen;}
+        @media only screen and (orientation:landscape){
+            body {background:lightblue}
+        }
+    </style>
+</head>
+<body>
+    <h1>Heres my nav bar</h1>
+    <p>media queries allow for responsive resizing of elements based 
+        on screen width</p>
+
+        <nav>
+            <a href="#">link</a>
+            <a href="#">link</a>
+            <a href="#">link</a>
+        </nav>
+
+        <h2 id="device"></h2>
+
+</body>
+</html>
