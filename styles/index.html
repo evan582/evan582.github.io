@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="cssforindex.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <p>It's quick and easy.</p>
+        <form action="#" method="post">
+            <input type="text" name="first_name" placeholder="First Name" required>
+            <input type="text" name="last_name" placeholder="Last Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="New Password" required>
+            
+            <label>Birthday</label>
+            <select name="year" required>
+                <option value="">Year</option>
+                <!-- Add year options dynamically -->
+                <script>
+                    let yearSelect = document.getElementsByName('year')[0];
+                    let currentYear = new Date().getFullYear();
+                    for (let i = currentYear; i >= 1905; i--) {
+                        let option = document.createElement('option');
+                        option.value = i;
+                        option.textContent = i;
+                        yearSelect.appendChild(option);
+                    }
+                </script>
+            </select>
+            
+            <label>Gender</label>
+            <label><input type="radio" name="gender" value="female" required> Female</label>
+            <label><input type="radio" name="gender" value="male"> Male</label>
+            <label><input type="radio" name="gender" value="custom"> Custom</label>
+            
+            <button type="submit">Sign Up</button>
+        </form>
+        <p><a href="#">Already have an account?</a></p>
+    </div>
+</body>
+</html>
