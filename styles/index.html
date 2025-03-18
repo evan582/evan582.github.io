@@ -19,7 +19,6 @@
             <label>Birthday</label>
             <select name="year" required>
                 <option value="">Year</option>
-                <!-- Add year options dynamically -->
                 <script>
                     let yearSelect = document.getElementsByName('year')[0];
                     let currentYear = new Date().getFullYear();
@@ -31,12 +30,10 @@
                     }
                 </script>
             </select>
-            
             <label>Gender</label>
             <label><input type="radio" name="gender" value="female" required> Female</label>
             <label><input type="radio" name="gender" value="male"> Male</label>
             <label><input type="radio" name="gender" value="custom"> Custom</label>
-            
             <button type="submit">Sign Up</button>
         </form>
         <p><a href="#">Already have an account?</a></p>
