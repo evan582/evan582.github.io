@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Games Website</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .game-container { display: flex; justify-content: space-around; margin-top: 20px; flex-wrap: wrap; }
+        .tic-tac-toe { display: grid; grid-template-columns: repeat(3, 100px); gap: 5px; }
+        .cell { width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; font-size: 2em; border: 1px solid black; cursor: pointer; }
+        .memory-game { display: grid; grid-template-columns: repeat(4, 100px); gap: 5px; }
+        .card { width: 100px; height: 100px; background: gray; color: white; font-size: 2em; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .snake-game iframe { width: 600px; height: 400px; border: none; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Games Website</h1>
+    <div class="game-container">
+        <div>
+            <h2>Tic-Tac-Toe</h2>
+            <div class="tic-tac-toe" id="ticTacToe"></div>
+        </div>
+        <div>
+            <h2>Memory Game</h2>
+            <div class="memory-game" id="memoryGame"></div>
+        </div>
+    </div>
+    <div class="snake-game">
+        <h2>Snake.io</h2>
+        <iframe src="https://playsnake.org/" title="Snake Game"></iframe>
+    </div>
+
+    <script>
+        // Tic-Tac-Toe Game
+        const ticTacToeBoard = document.getElementById("ticTacToe");
+        let ticTacToeCells = Array(9).fill(null);
+        let currentPlayer = "X";
+        
+        function createTicTacToe() {
+            ticTacToeBoard.innerHTML = "";
+            ticTacToeCells.forEach((cell, index) => {
+                let div = document.createElement("div");
+                div.classList.add("cell");
+                div.innerText = cell;
+                div.addEventListener("click", () => makeMove(index));
+                ticTacToeBoard.appendChild(div);
+            });
+        }
+        
+        function makeMove(index) {
+            if (!ticTacToeCells[index]) {
+                ticTacToeCells[index] = currentPlayer;
+                currentPlayer = currentPlayer === "X" ? "O" : "X";
+                createTicTacToe();
+            }
+        }
+        createTicTacToe();
+        
+        // Memory Game
+        const memoryGameBoard = document.getElementById("memoryGame");
+        const symbols = ["A", "B", "C", "D", "A", "B", "C", "D"]; 
+        let shuffledSymbols = symbols.sort(() => 0.5 - Math.random());
+        let selectedCards = [];
+        
+        function createMemoryGame() {
+            memoryGameBoard.innerHTML = "";
+            shuffledSymbols.forEach((symbol, index) => {
+                let div = document.createElement("div");
+                div.classList.add("card");
+                div.dataset.symbol = symbol;
+                div.addEventListener("click", () => flipCard(div));
+                memoryGameBoard.appendChild(div);
+            });
+        }
+        
+        function flipCard(card) {
+            if (selectedCards.length < 2 && !card.innerText) {
+                card.innerText = card.dataset.symbol;
+                selectedCards.push(card);
+            }
+            if (selectedCards.length === 2) {
+                setTimeout(checkMatch, 500);
+            }
+        }
+        
+        function checkMatch() {
+            if (selectedCards[0].dataset.symbol === selectedCards[1].dataset.symbol) {
+                selectedCards.forEach(card => card.style.background = "green");
+            } else {
+                selectedCards.forEach(card => card.innerText = "");
+            }
+            selectedCards = [];
+        }
+        createMemoryGame();
+    </script>
+</body>
+</html>
