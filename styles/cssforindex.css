@@ -6,22 +6,27 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    vertical-align:bottom;
 }
 
 .container {
     background: white;
-    padding: 20px;
+    padding: 30px;
     border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 10px 10px green;
     text-align: center;
     width: 300px;
+    border-color: black;
+    border-style:groove;
+    border-width: 2px;
+    
 }
 
 input, select {
     width: 100%;
     padding: 8px;
     margin: 5px 0;
-    border: 1px solid #ccc;
+    border: 1px solid ;
     border-radius: 5px;
 }
 
@@ -30,14 +35,13 @@ button {
     color: white;
     padding: 10px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    border-radius: 90px;
     width: 100%;
     font-weight: bold;
 }
 
 button:hover {
-    background-color: #558841;
+    background-color: darkgreen;
 }
 
 a {
@@ -47,4 +51,13 @@ a {
 
 a:hover {
     text-decoration: underline;
+    color: darkblue;
+}
+div {
+    text-align: center;
+    vertical-align: auto;
+
+}
+input{
+    vertical-align: auto;
 }
