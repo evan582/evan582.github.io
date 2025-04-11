@@ -3,11 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Prog 93a</title>
+    <style>
+        button{
+            background-color: red;}
+    </style>
 </head>
 <body>
+    <p>Enter KWH: </p>
+    <input type="number" id="kwh">
+
+    <button onclick="calc()">Calculate</button>
+    <p id="out"></p>
+
     <script>
-        let e = document.getElementById('electricity')
+        function calc() {
+        let kwh = Number(document.getElementById("kwh").value);
+ 
+        let br = kwh * 0.0475;
+        let sur = br.toFixed(2) * .10;
+        let tax = br.toFixed(2) * .03;
+        let total = br + sur + tax;
+        let late = total * 1.04;
+        let out = document.getElementById("out");
+        out.innerHTML = "<p>Base Rate: " + kwh + "  0.0475  $" + br.toFixed(2) + "</p>";
+        out.innerHTML += "<p>Surcharge: $" + sur.toFixed(2) + "</p>";
+        out.innerHTML += "<p>tax: $" + tax.toFixed(2) + "</p>";
+        out.innerHTML += "<p>__________________________</p>";
+        out.innerHTML += "<p>Total: $" + total.toFixed(2) + "</p>";
+        out.innerHTML += "<p>Late amount: $" + late.toFixed(2) + "</p>";
+        }
     </script>
 </body>
 </html>
