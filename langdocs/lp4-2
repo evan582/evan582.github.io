@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PackageCheck</title>
+</head>
+<body>
+  <p>Package Check</p>
+  <form id="packageForm">
+    <label>Enter package weight 
+      <input type="number" id="weight" required>
+    </label><br><br>
+    <label>Enter package length 
+      <input type="number" id="length" required>
+    </label><br><br>
+    <label>Enter package width 
+      <input type="number" id="width" required>
+    </label><br><br>
+    <label> package height 
+      <input type="number" id="height" required>
+    </label><br><br>
+    <button type="submit">Check Package</button>
+  </form>
+  <p id="result"></p>
+  <script>
+    document.getElementById('packageForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const weight = parseFloat(document.getElementById('weight').value);
+      const length = parseFloat(document.getElementById('length').value);
+      const width = parseFloat(document.getElementById('width').value);
+      const height = parseFloat(document.getElementById('height').value);
+      const volume = length * width * height; // in cubic cm
+      const maxWeight = 27; // kg
+      const maxVolume = 100000; // 0.1 cubic meters = 100,000 cubic cm
+
+      let message = '';
+
+      if (weight > maxWeight && volume > maxVolume) {
+        message = 'Too heavy and too large.';
+      } else if (weight > maxWeight) {
+        message = 'Too heavy.';
+      } else if (volume > maxVolume) {
+        message = 'Too large.';
+      } else {
+        message = 'Package accepted.';
+      }
+
+      document.getElementById('result').textContent = message;
+    });
+  </script>
+</body>
+</html>

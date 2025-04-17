@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mortgage Balance Calculator</title>
+  <link rel="stylesheet" href="cssmortgage.css">
+</head>
+<body>
+  <div class="container">
+    <h2><Center>Mortgage Balance Calculator</Center></h2>
+    <form onsubmit="event.preventDefault(); calculateBalance();">
+      <div></div>
+      <label for="principal">Principal </label>
+      <input type="number" id="principal" required><br>
+
+      <label for="interestRate">Interest Rate </label>
+      <input type="number" id="interestRate" step="0.01" required><br>
+
+      <label for="years">Loan Term </label>
+      <input type="number" id="years" required><br>
+
+      <label for="monthlyPayment">Monthly Payment</label>
+      <input type="number" id="monthlyPayment" required><br>
+
+      <button type="submit">Calculate</button>
+      <button type="button" onclick="reset()">Reset</button>
+    </form>
+    <p id="output"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
