@@ -29,9 +29,9 @@ label {
 }
 
 input {
-  padding: 10px;
-  border: 1px solid grey;
-  border-radius: 6px;
+  padding: 9px;
+  border: 1px solid;
+  border-radius: 65px;
 }
 
 button {

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Program 122b - Hourly Pay</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 24px;
+    }
+    pre {
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Program 122b</h1>
+  <h3>(hourly pay)</h3>
+  <p><strong>Rate of pay is 4 dollars per hour</strong></p>
+  <pre id="output">
+Hours  Pay
+  </pre>
+  <script>
+    const output = document.getElementById('output');
+    const payRate = 4;
+    let hours = 1;
+    while (hours <= 40) {
+      let pay = hours * payRate;
+      output.textContent += `${hours.toString().padStart(2, ' ')}     ${pay}\n`;
+      hours++;
+    }
+  </script>
+
+</body>
+</html>
