@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Prog152a</title>
 </head>
 <body>
     <p id="out"></p>
     <script>
-        let total = 0;
-        for (let lcv = 3; lcv <= 9669; lcv += 3) {
-            
+        let mgs = ""
+        let total = 0
+        for (let i=3;i <= 9669; i += 3) {
+            total += i
         }
+        document.getElementById("out").innerHTML = total
     </script>
 </body>
 </html>
