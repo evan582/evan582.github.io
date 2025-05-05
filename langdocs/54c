@@ -24,8 +24,7 @@
     </script>
 </head>
 <body>
-    <h1>Circle Properties Calculator</h1>
-    <p>Enter the radius of the circle:</p>
+    <p>Enter radius</p>
     <input type="number" id="radius" placeholder="Enter radius" step="0.001">
     <button onclick="calculateCircleProperties()">Calculate</button>
     <p id="output"></p>
