@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Calculator</title>
+    <script>
+        
+        function calculateFactorial() {
+            let number = parseInt(document.getElementById('number').value);
+            let result = 1;}
+            if (number === 0) {
+                alert("Exiting the program.");
+                return;
+            
+            for (let i = 1; i <= number; i++) {
+                result *= i;
+            }
+            document.getElementById('output').innerHTML = `The value of ${number}! is ${result}`;
+            document.getElementById('number').value = '';
+        }
+        function run() {
+            let number;
+            do {
+                number = parseInt(prompt("Enter a number (0 to quit):"));
+                if (number !== 0) {
+                    alert(`The value of ${number}! is ${factorial(number)}`);
+                }
+            } while (number !== 0);
+        }
+        function factorial(num) {
+            let result = 1;
+            for (let i = 1; i <= num; i++) {
+                result *= i;
+            }
+            return result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Factorial Calculator</h1>
+    <p>Enter a number to calculate its factorial:</p>
+    <input type="number" id="number" placeholder="Enter a number">
+    <button onclick="calculateFactorial()">Calculate Factorial</button>
+    <p id="output"></p>
+</body>
+</html>
