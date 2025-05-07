@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p5.js Album Art</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js" integrity="sha512-WJXVjqeINVpi5XXJ2jn0BSCfp0y80IKrYh731gLRnkAS9TKc5KNt/OfLtu+fCueqdWniouJ1ubM+VI/hbo7POQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body style="background: black;">
+    <script>
+        // Predefine variables
+        let gap = 10; 
+        let cirNum = 40;
+        let cirsize = 20;
+        let angle = 0;
+        let ptNum = 100;
+        let rectsize = 600;
+
+        // Initialize the program
+        function setup() {
+           createCanvas(windowWidth, windowHeight);
+           angleMode(DEGREES)
+        }
+
+        // Loop forever
+        function draw() {
+            background('black');
+            noCursor();
+            noStroke();
+            fill('white');
+            circle(mouseX, mouseY, 5);
+
+            push();
+            Translate(width/2, height/2);
+            rotate(angle);
+            angle += map(mouseX, 0, width, -0.1, 0.1);
+            noFill();
+            stroke('white');
+            strokewheight(1);
+            for(let 1 =0; i < cirNum; i++){
+                arc(0, 0, cirSize + gap * i, cirSize + gap * i,
+                    angle * i, 360 - angle/2
+                );
+            }
+            pop();
+
+        }
+    </script>
+</body>
+</html>
