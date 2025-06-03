@@ -39,7 +39,9 @@
         .contact-form .form-group {
             margin-bottom: 15px;
         }
-        
+        *{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+        }
     </style>
 </head>
 <body class="d-flex flex-column">
